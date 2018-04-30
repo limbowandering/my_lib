@@ -35,3 +35,34 @@ everyNth(arr,4);//[4,8,12];
 everyNth2(arr,4);//[1,5,9,13];
 ```
 
+#### factorial
+
+Calculates the factorial of a number.
+
+Use recursion. If `n` is less than or equal to `1` , return `1` . Otherwise, return the product of `n` and the factorial of `n-1` . Throws an exception if `n` is a negative number.
+
+``` javascript
+const factorial = n =>
+  n < 0
+    ? (() => {
+      throw new TypeError('Negative numbers are not allowed!');
+    })()
+  : n <= 1 ? 1 : n * factorial(n - 1);
+
+console.log(factorial(6));//720
+```
+
+#### fibonacci
+
+Generates an array, containing the Fibonacci sequence, up until the nth term.
+
+Create an empty array of the specific length, initializing the first two values ( `0` and `1` ). Use `Array.reduce()` to add values into the array, using the sum of the last two values, except for the first two.
+
+``` javascript
+const fibonacci = n =>
+  Array(n).fill(0).reduce((acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i), []);
+
+console.log(fibonacci(5));
+//[ 0, 1, 1, 2, 3 ]
+```
+
