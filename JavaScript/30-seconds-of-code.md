@@ -66,3 +66,84 @@ console.log(fibonacci(5));
 //[ 0, 1, 1, 2, 3 ]
 ```
 
+#### filterNonUnique
+
+Filters out the non-unique values in an array.
+
+Use `Array.filter()` for an array containing only the unique values.
+
+``` JavaScript
+const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+
+console.log(filterNonUnique([1,2,3,3,4,4,4,5,5]));
+//[ 1, 2 ]
+```
+
+(紧接着我就想到了去重怎么办)
+
+#### distinctValuesOfArray
+
+返回数组的所有不同值
+
+使用ES6 `Set` 和 `…rest` 运算符放弃所有重复的值.
+
+``` javascript
+const distinctValuesOfArray = arr => [...new Set(arr)];
+console.log(distinctValuesOfArray([1,2,3,4,3,4,5,6]));
+//[ 1, 2, 3, 4, 5, 6 ]
+```
+
+#### gcd
+
+有两个版本 
+
+一个是只能计算两个数的最大公约数 
+
+``` JavaScript
+const gcd = (x, y) => !y ? x : gcd(y, x%y);
+console.log(gcd(8,36));
+//4
+```
+
+另一个是能计算一整个数组的最大公约数:
+
+``` javascript
+//...变长参数
+const gcd = (...arr) =>{
+    const _gcd = (x, y) => (!y ? x : gcd(y, x%y));
+    return [...arr].reduce((a,b) => _gcd(a,b));
+}
+console.log(gcd(...[12,8,32]));
+//4
+```
+
+#### getMeridiemSuffixOfInterger
+
+Converts an integer to a suffixed string, adding `am` or `pm` based on its value.
+
+Use the modulo operator (`%`) and conditional checks to transform an integer to a stringified 12-hour format with meridiem suffix.
+
+``` JavaScript
+const getMeridiemSuffixOfInteger = num =>
+	num === 0 || num === 24
+		? 12 + 'am'
+		: num === 12
+			? 12 + 'pm'
+			: num < 12
+				? num % 12 + 'am'
+				: num % 12 + 'pm';
+
+console.log(getMeridiemSuffixOfInteger(24));
+console.log(getMeridiemSuffixOfInteger(0));
+console.log(getMeridiemSuffixOfInteger(12));
+console.log(getMeridiemSuffixOfInteger(11));
+console.log(getMeridiemSuffixOfInteger(23));
+//12am
+//12am
+//12pm
+//11am
+//11pm
+```
+
+
+
