@@ -145,5 +145,5 @@ console.log(getMeridiemSuffixOfInteger(23));
 //11pm
 ```
 
-
+#### hasClass
 
