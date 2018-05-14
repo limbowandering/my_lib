@@ -6,6 +6,12 @@
 
 英文也很通俗易懂, 所以写的时候会中英混杂.
 
+
+
+**先按照从易到难学一遍 再从头到尾学一遍** 
+
+
+
 ## Snippets for Beginners
 
 #### currentURL
@@ -146,4 +152,24 @@ console.log(getMeridiemSuffixOfInteger(23));
 ```
 
 #### hasClass
+
+Returns `true` if the element has the specified class, `false` otherwise. Use `element.classList.contains()` to check if the element has the specified class.
+
+``` javascript
+const hasClass = (el, className) => el.classList.contains(className);
+hasClass(document.querySelector('p.special'), 'special');
+//true
+```
+
+#### isDivisible
+
+checks if the first numeric argument is divisible by the second one.
+
+Use the modulo operator (`%`) to check if the remainder is equal to `0` .
+
+``` JavaScript
+const isDivisible = (dividend, divisor) => dividend % divisor === 0;
+console.log(isDivisible(6, 3));
+//true
+```
 
